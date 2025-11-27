@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard – Marchés publics de la Ville de Paris</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Analyse des Marchés Publics – Ville de Paris</h1>
+    <p class="subtitle">
+        Projet : Administration & Finances Publiques – Test technique DevOps/Data
+    </p>
+</header>
+
+<!-- <main>
+    <section class="card">
+        <h2>Montant total par année</h2>
+        <canvas id="chartAnnee"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Répartition par nature de marché</h2>
+        <canvas id="chartNature"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Top 10 des fournisseurs par montant</h2>
+        <canvas id="chartFournisseurs"></canvas>
+    </section>
+</main> -->
+
+<main>
+    <section class="card">
+        <h2>Montant total par année</h2>
+        <canvas id="chartAnnee"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Nombre de marchés par année</h2>
+        <canvas id="chartNbMarches"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Répartition par nature de marché</h2>
+        <canvas id="chartNature"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Top 10 des fournisseurs par montant</h2>
+        <canvas id="chartFournisseurs"></canvas>
+    </section>
+
+    <section class="card">
+        <h2>Montant total par périmètre financier</h2>
+        <canvas id="chartPerimetre"></canvas>
+    </section>
+</main>
+
+
+
+<footer>
+    <p>
+        Données : Open Data Paris – 
+        <a href="https://opendata.paris.fr" target="_blank">opendata.paris.fr</a><br>
+        Réalisé par Islem Ben Aissa – DevOps Engineer
+    </p>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
