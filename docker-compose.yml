@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: marches-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    # ports:
+    #   - "3306:3306"        # optionnel, pour se connecter depuis ton PC (DBeaver, etc.)
+    command: [
+      "--default-authentication-plugin=mysql_native_password",
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci"
+    ]
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: marches-web
+    depends_on:
+      - db
+    env_file:
+      - .env             # utilise ton fichier .env (avec DB_HOST=db)
+    ports:
+      - "5000:5000"      # http://127.0.0.1:5000
+    command: ["python", "src/app.py"]
+    # si tu veux recharger le HTML/CSS sans rebuild en dev, tu peux ajouter :
+    # volumes:
+    #   - ./web:/app/web
+
+volumes:
+  db_data:
