@@ -1,15 +1,15 @@
 # Analyse des Marchés Publics – Ville de Paris
 
-### Projet DevOps/Data – Test Technique
-
+### Projet DevOps/Data – Test Technique  
 **Réalisé par : Islem Ben Aissa – Ingénieure Cloud & DevOps**
 
+---
 
-# 0. Source des données & choix du thème
+#  0. Source des données & choix du thème
 
-Dans le cadre de ce test technique, j’ai choisi un thème à partir des jeux de données publics fournis par la Ville de Paris.
+Dans le cadre du test technique, les candidates et candidats doivent sélectionner un thème parmi les jeux de données mis à disposition par la Ville de Paris :
 
-**Plateforme OpenData officielle :**  
+ **Plateforme OpenData officielle :**  
 https://opendata.paris.fr/pages/home/
 
 La plateforme propose des centaines de datasets couvrant :  
@@ -20,7 +20,6 @@ La plateforme propose des centaines de datasets couvrant :
 - finances publiques  
 - infrastructures  
 - services urbains, etc.
-
 
 ##  Thème choisi : *Finances publiques – Marchés publics de la Ville de Paris*
 
@@ -42,30 +41,32 @@ Ce dataset comprend :
 - montants notifiés  
 - périmètre financier  
 
+Ce dataset a servi de base pour construire un projet **complet et reproductible** : ingestion, transformation, stockage, API Flask et interface de visualisation.
 
 ---
 
 # 1. Présentation du projet
 
-Ce projet consiste à réaliser **une application complète de data visualisation**, basée sur les données OpenData Paris relatives aux *marchés publics* (2013–2016).
+Ce projet consiste à réaliser **une application complète de data visualisation**, basée sur les données OpenData Paris relatives aux *marchés publics* (2013–2016).  
 L’objectif est de démontrer une **maîtrise globale du pipeline Data + compétences DevOps** :
 
-* Collecte de données brutes
-* Nettoyage & transformation
-* Stockage dans une base MySQL
-* Exposition via API Flask
-* Dashboard statique HTML/CSS + Chart.js
-* Conteneurisation Docker
-* Orchestration multi-services via Docker Compose
-* Tests automatisés avec Pytest
-* CI GitHub Actions
+* Collecte de données brutes  
+* Nettoyage & transformation  
+* Stockage dans une base MySQL  
+* Exposition via API Flask  
+* Dashboard statique HTML/CSS + Chart.js  
+* Conteneurisation Docker  
+* Orchestration multi-services via Docker Compose  
+* Tests automatisés avec Pytest  
+* CI GitHub Actions  
 
+Ce projet présente un **workflow professionnel complet**, allant de la donnée à la visualisation, entièrement reproductible via Docker.
 
 ---
 
 # 2. Architecture générale
 
-###  Architecture technique (schéma ASCII)
+### 📐 Architecture technique (schéma ASCII)
 
 ```
                              +--------------------+
@@ -100,7 +101,7 @@ L’objectif est de démontrer une **maîtrise globale du pipeline Data + compé
 
 ---
 
-#  3. Structure du repository
+# 3. Structure du repository
 
 ```
 air-quality-project/
@@ -133,68 +134,55 @@ air-quality-project/
 
 # 4. Explication du Backend
 
-###  Collecte des données
-
+## ✔ Collecte des données  
 `api_client.py` interroge l’API OpenData Paris pour récupérer les marchés publics.
 
-###  Nettoyage & transformation
+## ✔ Nettoyage & transformation  
+`processing.py` :  
+* normalisation des colonnes  
+* filtrage des années  
+* extraction des KPI  
+* génération des fichiers JSON pour le dashboard  
 
-`processing.py` :
+## ✔ Stockage MySQL  
+`loader.py` :  
+* création de la base `airquality`  
+* création de la table `marches_publics`  
+* insertion des données nettoyées  
 
-* normalisation des colonnes
-* filtrage des années
-* extraction des KPI
-* génération des fichiers JSON pour le dashboard
-
-###  Stockage MySQL
-
-`loader.py` :
-
-* création de la base `airquality`
-* création de la table `marches_publics`
-* insertion des données nettoyées
-
-###  API Flask
-
-`app.py` :
-
-* route `/` qui sert le dashboard
-* exposition des données JSON depuis `web/data/`
+## ✔ API Flask  
+`app.py` :  
+* route `/` qui sert le dashboard  
+* exposition des fichiers JSON depuis `web/data/`  
 
 ---
 
 # 5. Explication du Frontend (Dashboard)
 
-Dashboard statique :
+Dashboard statique développé avec :  
+* **HTML/CSS** pour la mise en page  
+* **Chart.js** pour les visualisations  
+* **JavaScript** pour charger dynamiquement les données JSON  
 
-* **HTML/CSS** pour la mise en page
-* **Chart.js** pour les graphiques
-* **JavaScript** pour charger les JSON produits par Python
-
-Les KPI affichés :
-
-1. Montant total par année
-2. Nombre de marchés par année
-3. Répartition par nature de marché
-4. Top 10 fournisseurs
-5. Montant total par périmètre financier
-
+### KPI affichés  
+ Montant total par année  
+ Nombre de marchés par année  
+ Répartition par nature de marché  
+ Top 10 fournisseurs  
+ Montant total par périmètre financier  
 
 ---
 
 # 6. Conteneurisation (Docker)
 
-###  Dockerfile (Flask)
+## ✔ Dockerfile  
+* Image Python slim  
+* Installation des dépendances  
+* Exposition du port 5000  
+* Commande `python src/app.py`  
 
-* Python 3.11 slim
-* Installation des dépendances
-* Copie du code
-* Exposition du port 5000
-* Commande `python src/app.py`
-
-###  docker-compose.yml
-
-2 services :
+## ✔ docker-compose.yml  
+Deux services :
 
 ```
 db:
@@ -210,135 +198,65 @@ web:
   env_file: .env
 ```
 
-Un volume MySQL assure la persistance des données.
+---
+
+# 7. CI – Tests automatisés (GitHub Actions)
+
+Un workflow simple exécutant :  
+✔ Checkout du code  
+✔ Setup Python  
+✔ Installation des dépendances  
+✔ Lancement de `pytest`
+
+Le test valide que la route `/` retourne bien **200 OK**, garantissant un fonctionnement minimal de l’API.
 
 ---
 
-# 6. Conteneurisation (Docker)
+# 8. Comment exécuter le projet
 
-L’application est entièrement conteneurisée afin de garantir une exécution reproductible, portable et indépendante de l’environnement local.
-
----
-
-## 6.1 Dockerfile (Service Flask)
-
-Le Dockerfile construit l’image du service `marches-web` :
-
-* Basé sur **Python 3.11 slim** (léger et optimisé)
-* Installation des dépendances via `requirements.txt`
-* Copie du code applicatif (`src/` + `web/`)
-* Définition du dossier de travail `/app`
-* Exposition du port **5000**
-* Commande finale : `python src/app.py`
-
-```dockerfile
-FROM python:3.11-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY src ./src
-COPY web ./web
-
-EXPOSE 5000
-
-CMD ["python", "src/app.py"]
-
----
-Ce conteneur héberge l'API Flask ainsi que la partie dashboard (HTML/JS/CSS).
-
----
-
-
-## 7. CI – Tests automatisés (GitHub Actions)
-
-Workflow `.github/workflows/tests.yml` :
-
-* Checkout du code
-* Setup Python
-* Installation des dépendances
-* Lancement de `pytest`
-
- Le test vérifie que la route `/` de Flask répond correctement (**200 OK**).
-
-Cela garantit la stabilité minimale de l’application.
-
----
-
-##  8. Comment exécuter le projet
-
-###  1. Cloner le repo
-
+##  Cloner le repo  
 ```
 git clone https://github.com/benaissaislem/Devops-DataOps.git
 cd Devops-DataOps
 ```
 
-###  2. Lancer Docker Compose
-
+##  Lancer Docker Compose  
 ```
 docker compose up --build
 ```
 
-###  3. Ouvrir l'application
+##  Ouvrir l'application  
+http://127.0.0.1:5000
 
-[http://127.0.0.1:5000](http://127.0.0.1:5000)
-
-###  4. Arrêter l'environnement
-
+##  Arrêter l'environnement  
 ```
 docker compose down
 ```
 
 ---
 
-##  9. Screenshots du résultat final
+# 9. Screenshots du résultat final
 
-###  Dashboard final
+### Dashboard final  
+*(Ajouter ici la capture complète du dashboard)*
 
-*(capture complète que tu as fournie)*
-
-![Dashboard](./web/dashboard_full.png) *(Tu renommeras l'image et tu la mettras dans le repo si tu veux.)*
-
-###  Base MySQL (Workbench)
-
-<img width="1918" height="976" alt="image" src="https://github.com/user-attachments/assets/d26ba40a-cf04-41e0-9732-4916fc6a7b0c" />
-
+### Vue MySQL Workbench  
+*(Ajouter la capture que tu m’as fournie)*
 
 ---
 
-## 10. Choix techniques & justification
+# 10. Choix techniques & justification
 
-| Technologie                   | Rôle             | Justification                             |
-| ----------------------------- | ---------------- | ----------------------------------------- |
-| **Python (requests, pandas)** | ETL              | Fiable, rapide, maîtrise totale           |
-| **MySQL 8**                   | Stockage durable | Stable & largement utilisé en entreprise  |
-| **Flask**                     | Serveur léger    | Simple, rapide, adapté au test technique  |
-| **Chart.js**                  | Visualisation    | Graphiques modernes et faciles à intégrer |
-| **Docker**                    | Reproductibilité | Pipeline portable & standard DevOps       |
-| **Docker Compose**            | Orchestration    | Multi-services cohérents                  |
-| **Pytest**                    | QA               | Tester l'app ↑ crédibilité                |
-| **GitHub Actions**            | CI               | Automatisation & standard entreprise      |
-
-
+| Technologie | Rôle | Justification |
+|------------|------|---------------|
+| **Python (requests, pandas)** | ETL | Rapidité, flexibilité, maîtrise totale |
+| **MySQL 8** | Stockage | Base stable et utilisée en production |
+| **Flask** | API légère | Simple, efficace, parfait pour un test |
+| **Chart.js** | Visualisation | Graphiques interactifs, moderne |
+| **Docker** | Reproductibilité | Standard DevOps, portable |
+| **Docker Compose** | Orchestration | Multi-services facile à déployer |
+| **Pytest** | Tests | Assure un minimum de qualité logicielle |
+| **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
-
-## 12. Auteur
-
-**Islem Ben Aissa**
-Ingénieure Cloud & DevOps
- [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
- [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
-
-
-
-
-
-
-
-
-
 
