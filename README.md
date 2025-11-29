@@ -133,11 +133,11 @@ air-quality-project/
 
 # 4. Explication du Backend
 
-### ✔ Collecte des données
+###  Collecte des données
 
 `api_client.py` interroge l’API OpenData Paris pour récupérer les marchés publics.
 
-### ✔ Nettoyage & transformation
+###  Nettoyage & transformation
 
 `processing.py` :
 
@@ -146,7 +146,7 @@ air-quality-project/
 * extraction des KPI
 * génération des fichiers JSON pour le dashboard
 
-### ✔ Stockage MySQL
+###  Stockage MySQL
 
 `loader.py` :
 
@@ -154,7 +154,7 @@ air-quality-project/
 * création de la table `marches_publics`
 * insertion des données nettoyées
 
-### ✔ API Flask
+###  API Flask
 
 `app.py` :
 
@@ -184,7 +184,7 @@ Les KPI affichés :
 
 # 6. Conteneurisation (Docker)
 
-### ✔ Dockerfile (Flask)
+###  Dockerfile (Flask)
 
 * Python 3.11 slim
 * Installation des dépendances
@@ -192,7 +192,7 @@ Les KPI affichés :
 * Exposition du port 5000
 * Commande `python src/app.py`
 
-### ✔ docker-compose.yml
+###  docker-compose.yml
 
 2 services :
 
@@ -213,6 +213,44 @@ web:
 Un volume MySQL assure la persistance des données.
 
 ---
+
+# 6. Conteneurisation (Docker)
+
+L’application est entièrement conteneurisée afin de garantir une exécution reproductible, portable et indépendante de l’environnement local.
+
+---
+
+## 6.1 Dockerfile (Service Flask)
+
+Le Dockerfile construit l’image du service `marches-web` :
+
+* Basé sur **Python 3.11 slim** (léger et optimisé)
+* Installation des dépendances via `requirements.txt`
+* Copie du code applicatif (`src/` + `web/`)
+* Définition du dossier de travail `/app`
+* Exposition du port **5000**
+* Commande finale : `python src/app.py`
+
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src ./src
+COPY web ./web
+
+EXPOSE 5000
+
+CMD ["python", "src/app.py"]
+
+---
+Ce conteneur héberge l'API Flask ainsi que la partie dashboard (HTML/JS/CSS).
+
+---
+
 
 # 7. CI – Tests automatisés (GitHub Actions)
 
@@ -294,6 +332,7 @@ docker compose down
 Ingénieure Cloud & DevOps
  [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
  [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
