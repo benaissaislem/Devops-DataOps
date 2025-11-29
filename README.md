@@ -174,15 +174,31 @@ Dashboard statique développé avec :
 # 6. Conteneurisation (Docker)
 
 ## ✔ Dockerfile  
-Le Dockerfile utilise :
+Le Dockerfile construit l’image du service `marches-web` :
 
-Python 3.11 slim
+* Basé sur **Python 3.11 slim** (léger et optimisé)
+* Installation des dépendances via `requirements.txt`
+* Copie du code applicatif (`src/` + `web/`)
+* Définition du dossier de travail `/app`
+* Exposition du port **5000**
+* Commande finale : `python src/app.py`
 
-Installation des dépendances depuis requirements.txt
+```dockerfile
+FROM python:3.11-slim
 
-Copie du code de l’application dans /app
+WORKDIR /app
 
-Exposition du port 5000
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src ./src
+COPY web ./web
+
+EXPOSE 5000
+
+CMD ["python", "src/app.py"]
+```
+Ce conteneur héberge l'API Flask ainsi que la partie dashboard (HTML/JS/CSS).
 
 Commande de lancement : 
 ```
@@ -283,6 +299,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
