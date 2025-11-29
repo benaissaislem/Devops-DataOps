@@ -41,7 +41,6 @@ Ce dataset comprend :
 - montants notifiés  
 - périmètre financier  
 
-Ce dataset a servi de base pour construire un projet **complet et reproductible** : ingestion, transformation, stockage, API Flask et interface de visualisation.
 
 ---
 
@@ -60,7 +59,6 @@ L’objectif est de démontrer une **maîtrise globale du pipeline Data + compé
 * Tests automatisés avec Pytest  
 * CI GitHub Actions  
 
-Ce projet présente un **workflow professionnel complet**, allant de la donnée à la visualisation, entièrement reproductible via Docker.
 
 ---
 
@@ -197,6 +195,21 @@ web:
   ports: ["5000:5000"]
   env_file: .env
 ```
+## ✔ docker-compose.yml 
+Après exécution de :
+```
+docker compose up --build
+```
+Les trois composants du projet tournent correctement :
+
+* marches-db → MySQL
+
+* marches-web → Flask
+
+marches-publics-project → Stack Docker Compose
+
+Voici l’affichage dans Docker Desktop :
+<img width="1907" height="738" alt="image" src="https://github.com/user-attachments/assets/59db63b4-9198-472c-860a-89360daf5a66" />
 
 ---
 
@@ -259,4 +272,5 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
