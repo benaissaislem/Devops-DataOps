@@ -21,6 +21,7 @@ La plateforme propose des centaines de datasets couvrant :
 - infrastructures  
 - services urbains, etc.
 
+
 ##  Thème choisi : *Finances publiques – Marchés publics de la Ville de Paris*
 
 J’ai choisi d’analyser les **marchés publics** car ce dataset :
@@ -59,7 +60,6 @@ L’objectif est de démontrer une **maîtrise globale du pipeline Data + compé
 * Tests automatisés avec Pytest
 * CI GitHub Actions
 
-Ce projet présente un **workflow professionnel complet**, allant de la donnée à la visualisation, entièrement reproductible via Docker.
 
 ---
 
@@ -295,6 +295,7 @@ docker compose down
 Ingénieure Cloud & DevOps
 📧 [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
 🔗 [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
