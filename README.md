@@ -174,10 +174,20 @@ Dashboard statique développé avec :
 # 6. Conteneurisation (Docker)
 
 ## ✔ Dockerfile  
-* Image Python slim  
-* Installation des dépendances  
-* Exposition du port 5000  
-* Commande `python src/app.py`  
+Le Dockerfile utilise :
+
+Python 3.11 slim
+
+Installation des dépendances depuis requirements.txt
+
+Copie du code de l’application dans /app
+
+Exposition du port 5000
+
+Commande de lancement : 
+```
+python src/app.py
+```
 
 ## ✔ docker-compose.yml  
 Deux services :
@@ -206,7 +216,7 @@ Les trois composants du projet tournent correctement :
 
 * marches-web → Flask
 
-marches-publics-project → Stack Docker Compose
+* marches-publics-project → Stack Docker Compose
 
 Voici l’affichage dans Docker Desktop :
 
@@ -273,6 +283,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
