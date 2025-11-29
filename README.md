@@ -4,6 +4,46 @@
 
 **Réalisé par : Islem Ben Aissa – Ingénieure Cloud & DevOps**
 
+
+# 0. Source des données & choix du thème
+
+Dans le cadre de ce test technique, j’ai choisi un thème à partir des jeux de données publics fournis par la Ville de Paris.
+
+**Plateforme OpenData officielle :**  
+https://opendata.paris.fr/pages/home/
+
+La plateforme propose des centaines de datasets couvrant :  
+- commerce  
+- culture  
+- environnement  
+- mobilité  
+- finances publiques  
+- infrastructures  
+- services urbains, etc.
+
+##  Thème choisi : *Finances publiques – Marchés publics de la Ville de Paris*
+
+J’ai choisi d’analyser les **marchés publics** car ce dataset :
+
+- est structuré (années, montants, fournisseurs…)  
+- permet de calculer des KPI réels et concrets  
+- a des enjeux pertinents : dépenses publiques, transparence, budget  
+- se prête parfaitement à la construction d’un pipeline Data → API → Dashboard  
+
+###  Dataset utilisé  
+**Marchés publics de la Ville de Paris (2013–2016)**  
+Ce dataset comprend :  
+- année de notification  
+- numéro du marché  
+- objet  
+- nature du marché (services, travaux, fournitures)  
+- fournisseur  
+- montants notifiés  
+- périmètre financier  
+
+
+---
+
 # 1. Présentation du projet
 
 Ce projet consiste à réaliser **une application complète de data visualisation**, basée sur les données OpenData Paris relatives aux *marchés publics* (2013–2016).
@@ -255,6 +295,7 @@ docker compose down
 Ingénieure Cloud & DevOps
 📧 [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
 🔗 [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
