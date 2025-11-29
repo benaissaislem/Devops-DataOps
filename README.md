@@ -206,7 +206,21 @@ python src/app.py
 ```
 
 ## ✔ docker-compose.yml  
-Deux services :
+Deux services sont orchestrés :
+
+* marches-db → MySQL 8 (base de données)
+
+* marches-web → Flask + génération des JSON
+
+Le fichier docker-compose.yml gère :
+
+* le réseau interne
+
+* les variables d’environnement via .env
+
+* l'ordre de démarrage (depends_on)
+
+* un volume persistant MySQL (db_data)
 
 ```
 db:
@@ -299,6 +313,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
