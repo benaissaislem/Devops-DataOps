@@ -179,7 +179,6 @@ Les KPI affichés :
 4. Top 10 fournisseurs
 5. Montant total par périmètre financier
 
- Résultat : une interface propre, moderne et responsive.
 
 ---
 
@@ -232,7 +231,7 @@ Cela garantit la stabilité minimale de l’application.
 
 #  8. Comment exécuter le projet
 
-### 👉 1. Cloner le repo
+###  1. Cloner le repo
 
 ```
 git clone https://github.com/benaissaislem/Devops-DataOps.git
@@ -257,7 +256,7 @@ docker compose down
 
 ---
 
-# 📌 9. Screenshots du résultat final
+#  9. Screenshots du résultat final
 
 ###  Dashboard final
 
@@ -265,7 +264,7 @@ docker compose down
 
 ![Dashboard](./web/dashboard_full.png) *(Tu renommeras l'image et tu la mettras dans le repo si tu veux.)*
 
-### 💾 Base MySQL (Workbench)
+###  Base MySQL (Workbench)
 
 <img width="1918" height="976" alt="image" src="https://github.com/user-attachments/assets/d26ba40a-cf04-41e0-9732-4916fc6a7b0c" />
 
@@ -293,8 +292,9 @@ docker compose down
 
 **Islem Ben Aissa**
 Ingénieure Cloud & DevOps
-📧 [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
-🔗 [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+ [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
+ [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
