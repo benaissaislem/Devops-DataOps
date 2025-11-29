@@ -64,7 +64,7 @@ L’objectif est de démontrer une **maîtrise globale du pipeline Data + compé
 
 # 2. Architecture générale
 
-### 📐 Architecture technique (schéma ASCII)
+###  Architecture technique (schéma ASCII)
 
 ```
                              +--------------------+
@@ -132,23 +132,23 @@ air-quality-project/
 
 # 4. Explication du Backend
 
-## ✔ Collecte des données  
+##  Collecte des données  
 `api_client.py` interroge l’API OpenData Paris pour récupérer les marchés publics.
 
-## ✔ Nettoyage & transformation  
+##  Nettoyage & transformation  
 `processing.py` :  
 * normalisation des colonnes  
 * filtrage des années  
 * extraction des KPI  
 * génération des fichiers JSON pour le dashboard  
 
-## ✔ Stockage MySQL  
+##  Stockage MySQL  
 `loader.py` :  
 * création de la base `airquality`  
 * création de la table `marches_publics`  
 * insertion des données nettoyées  
 
-## ✔ API Flask  
+##  API Flask  
 `app.py` :  
 * route `/` qui sert le dashboard  
 * exposition des fichiers JSON depuis `web/data/`  
@@ -173,7 +173,7 @@ Dashboard statique développé avec :
 
 # 6. Conteneurisation (Docker)
 
-## ✔ Dockerfile  
+##  Dockerfile  
 Le Dockerfile construit l’image du service `marches-web` :
 
 * Basé sur **Python 3.11 slim** (léger et optimisé)
@@ -205,7 +205,7 @@ Commande de lancement :
 python src/app.py
 ```
 
-## ✔ docker-compose.yml  
+##  docker-compose.yml  
 Deux services sont orchestrés :
 
 * marches-db → MySQL 8 (base de données)
@@ -235,7 +235,7 @@ web:
   ports: ["5000:5000"]
   env_file: .env
 ```
-## ✔ Visualisation des conteneurs (Docker Desktop)
+##  Visualisation des conteneurs (Docker Desktop)
 Après exécution de :
 ```
 docker compose up --build
@@ -315,6 +315,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
