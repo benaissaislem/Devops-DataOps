@@ -1,13 +1,12 @@
-# tests/test_app.py
 import os
 import sys
 
-# Ajouter le dossier src au PYTHONPATH
+
 CURRENT_DIR = os.path.dirname(__file__)
 SRC_PATH = os.path.join(CURRENT_DIR, "..", "src")
 sys.path.append(os.path.abspath(SRC_PATH))
 
-from app import app  # importe depuis src/app.py
+from app import app  
 
 
 def test_index_route():

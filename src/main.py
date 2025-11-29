@@ -1,4 +1,3 @@
-# from analysis import montant_par_annee, montant_par_nature, top_fournisseurs
 from analysis import (
     montant_par_annee,
     montant_par_nature,

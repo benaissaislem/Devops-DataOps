@@ -1,12 +1,12 @@
-# Virtualenv
+
 venv/
 
-# Bytecode Python
+
 __pycache__/
 *.pyc
 
-# Secrets
+
 .env
 
-# Données générées
+
 web/data/*.json
