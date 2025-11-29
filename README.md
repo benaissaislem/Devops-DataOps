@@ -292,10 +292,12 @@ docker compose down
 # 9. Screenshots du résultat final
 
 ### Dashboard final  
-*(Ajouter ici la capture complète du dashboard)*
+<img width="1917" height="981" alt="image" src="https://github.com/user-attachments/assets/d3f5e084-63be-4267-b59a-fd9cb97df6db" />
+
 
 ### Vue MySQL Workbench  
-*(Ajouter la capture que tu m’as fournie)*
+<img width="1918" height="1018" alt="image" src="https://github.com/user-attachments/assets/efa55b8e-fa23-4a3f-861d-348b642dac96" />
+
 
 ---
 
@@ -313,6 +315,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
