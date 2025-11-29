@@ -23,9 +23,9 @@ Ce projet présente un **workflow professionnel complet**, allant de la donnée 
 
 ---
 
-# 📌 2. Architecture générale
+# 2. Architecture générale
 
-### 🏗️ Architecture technique (schéma ASCII)
+###  Architecture technique (schéma ASCII)
 
 ```
                              +--------------------+
@@ -60,7 +60,7 @@ Ce projet présente un **workflow professionnel complet**, allant de la donnée 
 
 ---
 
-# 📌 3. Structure du repository
+#  3. Structure du repository
 
 ```
 air-quality-project/
@@ -86,12 +86,12 @@ air-quality-project/
 ├── docker-compose.yml       → Multi-services (web + DB)
 ├── Dockerfile               → Build de l'app Flask
 ├── requirements.txt         → Dépendances Python
-└── README.md                → Documentation (ce fichier)
+└── README.md                → Documentation 
 ```
 
 ---
 
-# 📌 4. Explication du Backend
+# 4. Explication du Backend
 
 ### ✔ Collecte des données
 
@@ -139,11 +139,11 @@ Les KPI affichés :
 4. Top 10 fournisseurs
 5. Montant total par périmètre financier
 
-🎯 Résultat : une interface propre, moderne et responsive.
+ Résultat : une interface propre, moderne et responsive.
 
 ---
 
-# 📌 6. Conteneurisation (Docker)
+# 6. Conteneurisation (Docker)
 
 ### ✔ Dockerfile (Flask)
 
@@ -175,7 +175,7 @@ Un volume MySQL assure la persistance des données.
 
 ---
 
-# 📌 7. CI – Tests automatisés (GitHub Actions)
+# 7. CI – Tests automatisés (GitHub Actions)
 
 Workflow `.github/workflows/tests.yml` :
 
@@ -184,13 +184,13 @@ Workflow `.github/workflows/tests.yml` :
 * Installation des dépendances
 * Lancement de `pytest`
 
-🎯 Le test vérifie que la route `/` de Flask répond correctement (**200 OK**).
+ Le test vérifie que la route `/` de Flask répond correctement (**200 OK**).
 
 Cela garantit la stabilité minimale de l’application.
 
 ---
 
-# 📌 8. Comment exécuter le projet
+#  8. Comment exécuter le projet
 
 ### 👉 1. Cloner le repo
 
@@ -199,17 +199,17 @@ git clone https://github.com/benaissaislem/Devops-DataOps.git
 cd Devops-DataOps
 ```
 
-### 👉 2. Lancer Docker Compose
+###  2. Lancer Docker Compose
 
 ```
 docker compose up --build
 ```
 
-### 👉 3. Ouvrir l'application
+###  3. Ouvrir l'application
 
 [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-### 👉 4. Arrêter l'environnement
+###  4. Arrêter l'environnement
 
 ```
 docker compose down
@@ -219,7 +219,7 @@ docker compose down
 
 # 📌 9. Screenshots du résultat final
 
-### 📊 Dashboard final
+###  Dashboard final
 
 *(capture complète que tu as fournie)*
 
@@ -227,11 +227,12 @@ docker compose down
 
 ### 💾 Base MySQL (Workbench)
 
-*(capture fournie)*
+<img width="1918" height="976" alt="image" src="https://github.com/user-attachments/assets/d26ba40a-cf04-41e0-9732-4916fc6a7b0c" />
+
 
 ---
 
-# 📌 10. Choix techniques & justification
+# 10. Choix techniques & justification
 
 | Technologie                   | Rôle             | Justification                             |
 | ----------------------------- | ---------------- | ----------------------------------------- |
@@ -244,39 +245,17 @@ docker compose down
 | **Pytest**                    | QA               | Tester l'app ↑ crédibilité                |
 | **GitHub Actions**            | CI               | Automatisation & standard entreprise      |
 
-🎯 Résultat : un projet **propre, automatisé, industriel**.
+
 
 ---
 
-# 📌 11. Améliorations possibles (Roadmap)
-
-* Ajouter une API Flask complète (GET marchés, filtres, pagination)
-* Ajouter une partie CI/CD complète avec déploiement
-* Ajouter un frontend Vue.js ou React
-* Ajouter Prometheus/Grafana pour monitoring DevOps
-* Mettre en place un pipeline ETL Airflow
-
----
-
-# 📌 12. Auteur
+# 12. Auteur
 
 **Islem Ben Aissa**
 Ingénieure Cloud & DevOps
 📧 [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
 🔗 [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
 
----
 
-# ✅ Ce README est prêt à être collé sur GitHub
 
-Oui : **tu mets le README.md directement dans ton repo GitHub**, à la racine.
-C’est ce fichier que les recruteurs lisent en premier.
 
----
-
-Si tu veux, je peux te générer :
-✔ une version anglaise
-✔ une version courte
-✔ une version orientée DevOps ou Data
-
-Souhaites-tu une autre version ? 🚀
