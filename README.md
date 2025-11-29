@@ -252,7 +252,7 @@ Ce conteneur héberge l'API Flask ainsi que la partie dashboard (HTML/JS/CSS).
 ---
 
 
-# 7. CI – Tests automatisés (GitHub Actions)
+## 7. CI – Tests automatisés (GitHub Actions)
 
 Workflow `.github/workflows/tests.yml` :
 
@@ -267,7 +267,7 @@ Cela garantit la stabilité minimale de l’application.
 
 ---
 
-#  8. Comment exécuter le projet
+##  8. Comment exécuter le projet
 
 ###  1. Cloner le repo
 
@@ -294,7 +294,7 @@ docker compose down
 
 ---
 
-#  9. Screenshots du résultat final
+##  9. Screenshots du résultat final
 
 ###  Dashboard final
 
@@ -309,7 +309,7 @@ docker compose down
 
 ---
 
-# 10. Choix techniques & justification
+## 10. Choix techniques & justification
 
 | Technologie                   | Rôle             | Justification                             |
 | ----------------------------- | ---------------- | ----------------------------------------- |
@@ -326,12 +326,13 @@ docker compose down
 
 ---
 
-# 12. Auteur
+## 12. Auteur
 
 **Islem Ben Aissa**
 Ingénieure Cloud & DevOps
  [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
  [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
