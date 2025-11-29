@@ -257,10 +257,10 @@ Voici l’affichage dans Docker Desktop :
 # 7. CI – Tests automatisés (GitHub Actions)
 
 Un workflow simple exécutant :  
-✔ Checkout du code  
-✔ Setup Python  
-✔ Installation des dépendances  
-✔ Lancement de `pytest`
+* Checkout du code  
+* Setup Python  
+* Installation des dépendances  
+* Lancement de `pytest`
 
 Le test valide que la route `/` retourne bien **200 OK**, garantissant un fonctionnement minimal de l’API.
 
@@ -315,6 +315,7 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
 
