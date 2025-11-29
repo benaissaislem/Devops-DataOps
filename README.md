@@ -163,7 +163,7 @@ air-quality-project/
 
 ---
 
-# 📌 5. Explication du Frontend (Dashboard)
+# 5. Explication du Frontend (Dashboard)
 
 Dashboard statique :
 
@@ -295,6 +295,7 @@ docker compose down
 Ingénieure Cloud & DevOps
 📧 [benaissa.isslem@gmail.com](mailto:benaissa.isslem@gmail.com)
 🔗 [https://www.linkedin.com/in/islem-b-aissa](https://www.linkedin.com/in/islem-b-aissa)
+
 
 
 
