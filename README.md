@@ -195,7 +195,7 @@ web:
   ports: ["5000:5000"]
   env_file: .env
 ```
-## ✔ docker-compose.yml 
+## ✔ Visualisation des conteneurs (Docker Desktop)
 Après exécution de :
 ```
 docker compose up --build
@@ -209,6 +209,7 @@ Les trois composants du projet tournent correctement :
 marches-publics-project → Stack Docker Compose
 
 Voici l’affichage dans Docker Desktop :
+
 <img width="1907" height="738" alt="image" src="https://github.com/user-attachments/assets/59db63b4-9198-472c-860a-89360daf5a66" />
 
 ---
@@ -272,5 +273,6 @@ docker compose down
 | **GitHub Actions** | CI | Automatisation fiable et standard |
 
 ---
+
 
 
